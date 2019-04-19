@@ -1,7 +1,7 @@
-defmodule NervesSystemRpi0.MixProject do
+defmodule CustomNervesSystemRpi0.MixProject do
   use Mix.Project
 
-  @app :nerves_system_rpi0
+  @app :nerves_system_rpi0_hid
   @version Path.join(__DIR__, "VERSION")
            |> File.read!()
            |> String.trim()
@@ -34,9 +34,10 @@ defmodule NervesSystemRpi0.MixProject do
   defp nerves_package do
     [
       type: :system,
-      artifact_sites: [
-        {:github_releases, "nerves-project/#{@app}"}
-      ],
+      # Don't use any cached artifact
+      # artifact_sites: [
+      #   {:github_releases, "nerves-project/#{@app}"}
+      # ],
       build_runner_opts: build_runner_opts(),
       platform: Nerves.System.BR,
       platform_config: [
@@ -59,14 +60,17 @@ defmodule NervesSystemRpi0.MixProject do
   defp description do
     """
     Nerves System - Raspberry Pi Zero and Zero W
+
+    With USB HID module
     """
   end
 
   defp package do
     [
+      maintainers: ["André Albuquerque"],
       files: package_files(),
       licenses: ["Apache 2.0"],
-      links: %{"GitHub" => "https://github.com/nerves-project/#{@app}"}
+      links: %{"Github" => "https://github.com/amalbuquerque/nerves_custom_rpi0"}
     ]
   end
 
