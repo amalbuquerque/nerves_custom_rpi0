@@ -1,3 +1,17 @@
+# Important note
+
+This repository was cloned from the official Nerves system for the Raspberry Pi Zero.
+
+It's difference lies on the fact that, instead of having the `g_cdc` package that configures the virtual Ethernet port via USB, it installs the package that allows the creation and configuration of USB gadgets from user space with ConfigFS.
+
+If you want to better understand what we did, please consider the following commits:
+
+- [Initial changes to `mix.exs` per documentation
+](https://github.com/amalbuquerque/nerves_custom_rpi0/commit/TODO)
+- [Updated Linux Kernel defconfig with ConfigFS + HID](https://github.com/amalbuquerque/nerves_custom_rpi0/commit/TODO)
+- [Created a custom busybox defconfig + updated the nerves_defconfig](https://github.com/amalbuquerque/nerves_custom_rpi0/commit/TODO)
+- [Disabled "CDC Composite Device (Ethernet and ACM)" w/ linux-menuconfig](https://github.com/amalbuquerque/nerves_custom_rpi0/commit/TODO)
+
 # Raspberry Pi Model Zero
 
 [![CircleCI](https://circleci.com/gh/nerves-project/nerves_system_rpi0.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_system_rpi0)
